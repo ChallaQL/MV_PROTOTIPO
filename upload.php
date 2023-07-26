@@ -48,7 +48,8 @@ if(isset($_POST['upload-btn'])){
     $run = mysqli_query($connection,$sql);
 
     if($run){
-        echo "data inserted";
+        $response = $client->request($uri . '?fields=link');
+        echo " Your video link is: " . $response['body']['link'];;
     }
     else{
         echo mysqli_error($connection);
